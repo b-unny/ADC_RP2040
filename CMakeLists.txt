@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_COMPILER 17)
+set(CMAKE_CXX_STANDARD 17)
 
 set(PICO_BOARD pico_w CACHE STRING "Board type")
 
@@ -12,8 +12,6 @@ project(ADC_U4C8 CXX ASM)
 pico_sdk_init()
 
 add_executable(ADC_U4C8 main.c lib.c inc/ssd1306.c)
-
-#pico_generate_pio_header(ADC_U4C8 ${CMAKE_CURRENT_LIST_DIR}/ws2812.pio)
 
 target_link_libraries(ADC_U4C8 
 	pico_stdlib 
