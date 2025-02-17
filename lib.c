@@ -51,7 +51,7 @@ void set_brightness(uint pino, uint16_t level)
 
 void init_dispaly()
 {
-  i2c_init(12C_PORT, 400*1000);
+  i2c_init(I2C_PORT, 400*1000);
   gpio_set_function(DISPLAY_SDA, GPIO_FUNC_I2C);
   gpio_set_function(DISPLAY_SCL, GPIO_FUNC_I2C;
   gpio_pull_up(DISPLAY_SDA);
@@ -69,14 +69,32 @@ void init_dispaly()
 
 void init_joystick()
 {
-  // 2048 position -> led off
-  // abs value = |adc_read() - 2048|
+  adc_init();
+  adc_gpio_init(JS_X);
+  adc_gpio_init(JS_Y);
 }
 
 void joystick_handler()
 {
   // vai receber os valores do potenciometro -> brightness = level
   // mandara o nivel para funçao 'set_brightness"
+
+  adc_select_input(0);
+  uint16_t abs1 = abs(adc_read() - 2048);
+  set_brightness(JS_X, abs1);
+    
+  adc_select_input(1);
+  uint16_t abs2 = abs(adc_read() - 2048);
+  set_brightness(JS_Y, abs2);
 }
 
+uint16_t abs(uint16_t x)
+{
+  return (x<0) ? -x: x); 
+}
+
+void update_display()
+{
+
+}
 

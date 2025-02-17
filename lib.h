@@ -28,3 +28,5 @@ void update_display();
 
 void init_joystick();
 void joystick_handler();
+
+uint16_t abs(uint16_t x);
