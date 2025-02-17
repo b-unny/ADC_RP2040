@@ -38,4 +38,6 @@
         - Botão A: GPIO 5.
         - Display SSD1306 (I2C): GPIOs 14 e 15.
 
+[Créditos diretório "inc": Prof. Wilton Lacerda](https://github.com/wiltonlacerda)
+
 [link para demostração]()
