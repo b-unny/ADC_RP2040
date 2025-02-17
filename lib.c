@@ -95,6 +95,6 @@ uint16_t abs(uint16_t x)
 
 void update_display()
 {
-
+  // TODO toda logica T-T
 }
 
