@@ -1,6 +1,6 @@
 #include"pico/stdlib.h"
 #include"hardware/adc.h"
-#include"hardware.pwm.h"
+#include"hardware/pwm.h"
 #include"hardware/i2c.h"
 #include"inc/ssd1306.h"
 #include"inc/font.h"
@@ -18,9 +18,9 @@
 
 void init_buttons(); //ok
 void button_a_callback(uint pino, uint32_t events); //ok
-void button_js_callback(uint pino, uint32_t events):
+void button_j_callback(uint pino, uint32_t events);
 
-void set_led_pwm(uint pino); //ok
+void set_led_pwm(); //ok
 void set_brightness(uint pino, uint16_t level); //ok
 
 void init_display(); //ok

@@ -3,15 +3,15 @@
 
 int main()
 {
-  stdio_init_all():
+  stdio_init_all();
   init_buttons();
   set_led_pwm();
-  init_displays();
+  init_display();
   init_joystick();
   
   while(1)
   {
-    joystick_handler():
+    joystick_handler();
     sleep_ms(5);
   }
 }
