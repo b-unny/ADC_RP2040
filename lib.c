@@ -80,17 +80,17 @@ void joystick_handler()
   // mandara o nivel para funçao 'set_brightness"
 
   adc_select_input(0);
-  uint16_t abs1 = abs(adc_read() - 2048);
+  uint16_t abs1 = abs(adc_read() - 2048)*2;
   set_brightness(JS_X, abs1);
     
   adc_select_input(1);
-  uint16_t abs2 = abs(adc_read() - 2048);
+  uint16_t abs2 = abs(adc_read() - 2048)*2;
   set_brightness(JS_Y, abs2);
 }
 
 uint16_t abs(uint16_t x)
 {
-  return (x<0) ? -x: x); 
+  return (x<0) ? -x: x ; 
 }
 
 void update_display()
