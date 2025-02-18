@@ -1,5 +1,7 @@
 #include "lib.h"
 
+volatile bool led_state = false;
+
 void init_buttons()
 {
   gpio_init(BUTTON_A);
@@ -16,14 +18,15 @@ void init_buttons()
 void button_a_callback(uint pino, uint32_t events)
 {
   sleep_ms(10);
-  uint led_on = (pwm_get_gpio_level(LED_R) > pwm_get_gpio_level(LED_B)) ? LED_R : LED_B;
-  pwm_set_gpio_level(led_on, pwm_get_gpio_level(led_on) > 0 ? 0 : 2048);
+  (led_state) ? pwm_set_gpio_level(LED_R, 0) : pwm_set_gpio_level(LED_R, 3000);
+  led_state = !led_state;
 }
 
 void button_j_callback(uint pino, uint32_t events)
 {
   sleep_ms(10);
-  pwm_set_gpio_level(LED_G, pwm_get_gpio_level(LED_G) > 0 ? 0 : 2048);
+  (led_state) ? pwm_set_gpio_level(LED_R, 0) : pwm_set_gpio_level(LED_R, 3000);
+  led_state = !led_state;
   
   /* TODO Modificar a borda do display para indicar quando foi pressionado
      alternando entre diferentes estilos de borda a cada novo acionamento. */
