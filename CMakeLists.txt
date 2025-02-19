@@ -11,7 +11,7 @@ project(ADC_U4C8 CXX ASM)
 
 pico_sdk_init()
 
-add_executable(ADC_U4C8 main.c lib.c inc/ssd1306.c)
+add_executable(ADC_U4C8 source.c inc/ssd1306.c)
 
 target_link_libraries(ADC_U4C8 
 	pico_stdlib 
