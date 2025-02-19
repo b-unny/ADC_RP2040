@@ -20,19 +20,15 @@
 #define JS_Y 27
 #define ENDERECO 0x3C
 
-extern volatile bool led_state;
-
 void init_buttons(); //ok
-void button_a_callback(uint pino, uint32_t events); //ok
-void button_j_callback(uint pino, uint32_t events);
+void buttons_callback(uint pino, uint32_t events); //ok
 
-void set_led_pwm(); //ok
+void init_leds_pwm(bool state); //ok
 void set_brightness(uint pino, uint16_t level); //ok
 
-void init_display(); //ok 
-void update_display();    
-
-// funçoes separadas para quadrado e borda
+void init_display(); //ok     
+void bordas(ssd1306_t *ssd);
+void quadrado(uint8_t x, uint8_t y);
 
 void init_joystick(); //ok i guess ??
 void joystick_handler(); // ok i guess ?? x2
